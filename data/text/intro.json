@@ -1,0 +1,93 @@
+{
+ "id": "intro",
+ "lines": [
+  {
+   "speaker": "Raka",
+   "text": "Dikit lagi... tinggal satu bug bangsat ini... deadline besok subuh..."
+  },
+  {
+   "speaker": "Raka",
+   "text": "Lah, kok pusing banget..."
+  },
+  {
+   "speaker": "",
+   "text": "Pandangan Raka gelap. Ia ambruk di atas keyboard."
+  },
+  {
+   "speaker": "Suster Elara",
+   "text": "Berhasil... doanya beneran terkabul! Uskup, dia datang!"
+  },
+  {
+   "speaker": "Uskup Valerian",
+   "text": "Selamat datang, pahlawan. Dewa mendengar doa kita, dan kamu adalah jawabannya."
+  },
+  {
+   "speaker": "Raka",
+   "text": "Pahlawan? Bentar, bentar... saya cuma programmer yang tumbang gara-gara overwork. Ini di mana, anjir?"
+  },
+  {
+   "speaker": "Uskup Valerian",
+   "text": "Desa ini lagi terancam sama Raja Iblis dan dua tangannya: Raja Slime di kiri, Garuda di kanan. Cuma pahlawan dari dunia lain yang bisa habisi mereka."
+  },
+  {
+   "speaker": "Raka",
+   "text": "Kalau saya nolak gimana?"
+  },
+  {
+   "speaker": "Uskup Valerian",
+   "text": "Ya bebas, itu pilihanmu. Tapi tanpa kamu, desa ini bakal rata sama tanah. Kamu tega liat mereka mati?"
+  },
+  {
+   "speaker": "Raka",
+   "text": "...Yaelah. Yaudah deh, tapi jelasin dulu semuanya. Jangan ada yang ditutup-tutupi."
+  },
+  {
+   "speaker": "Uskup Valerian",
+   "text": "Tenang. Suster Elara bakal nemenin dan jawab semua pertanyaanmu."
+  },
+  {
+   "speaker": "Suster Elara",
+   "text": "Jawab apa yang bisa dijawab..."
+  },
+  {
+   "speaker": "Sistem",
+   "text": "User terdeteksi. Selamat datang, Raka. Gue adalah Sistem yang bakal bantu perjalanan lu."
+  },
+  {
+   "speaker": "Raka",
+   "text": "Eh, buset! Layar apaan nih melayang di depan muka?!"
+  },
+  {
+   "speaker": "Sistem",
+   "text": "Cuma lu yang bisa liat. Misi utama lu: ratain Raja Iblis di puncak Tower. Tower-nya cuma tiga lantai kok."
+  },
+  {
+   "speaker": "Raka",
+   "text": "Cuma tiga lantai? Enteng amat."
+  },
+  {
+   "speaker": "Sistem",
+   "text": "Jangan remehkan. Tiap lantai ada bosnya. Lantai satu: Raja Slime. Lantai dua: Garuda. Lantai tiga: Raja Iblis."
+  },
+  {
+   "speaker": "Sistem",
+   "text": "Lu bisa up-stat pakai dua cara. Pertama, leveling pakai EXP buat naikkan semua stat sekaligus. Kedua, pakai Poin Kontribusi."
+  },
+  {
+   "speaker": "Raka",
+   "text": "Poin Kontribusi? Gimana sistem hitungnya?"
+  },
+  {
+   "speaker": "Sistem",
+   "text": "1 poin bisa lu tukar buat +1 ATK, DEF, SPD, atau +10 HP. Bantai 10 kroco rendah = 1 poin, 5 monster menengah = 1 poin, 3 monster elit = 1 poin. Ngalahin bos lantai dapet bonus 5 poin."
+  },
+  {
+   "speaker": "Raka",
+   "text": "Oh, tipikal mekanik RPG klasik. Paham gue."
+  },
+  {
+   "speaker": "Sistem",
+   "text": "Sip. Kalau bingung mau ke mana, panggil gue aja."
+  }
+ ]
+}
