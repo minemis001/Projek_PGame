@@ -3,6 +3,7 @@ import pygame
 
 from settings import *
 from player import Player
+from tilemap import TileMap
 
 
 class Game:
@@ -15,16 +16,28 @@ class Game:
 
         self.font_judul = pygame.font.Font(None, 72)
         self.font_menu = pygame.font.Font(None, 48)
+        self.font_kecil = pygame.font.Font(None, 28)
 
         self.state = STATE_MENU
         self.menu_items = ["New Game", "Load", "Exit"]
         self.menu_index = 0
 
         self.player = None
+        self.tilemap = None
+        self.kamera = pygame.Vector2(0, 0)
 
-    # ---------- pindah state ----------
+    # ---------- map & state ----------
+    def load_map(self, nama, spawn=None):
+        self.tilemap = TileMap(nama)
+        tx, ty = spawn if spawn else self.tilemap.start
+        if self.player is None:
+            self.player = Player(tx, ty)
+        else:
+            self.player.set_tile(tx, ty)
+
     def mulai_game_baru(self):
-        self.player = Player(WIDTH // 2, HEIGHT // 2)
+        self.player = None
+        self.load_map("desa")
         self.state = STATE_PLAYING
 
     def pilih_menu(self):
@@ -58,7 +71,25 @@ class Game:
     # ---------- update ----------
     def update(self, dt):
         if self.state == STATE_PLAYING:
-            self.player.update(dt, pygame.key.get_pressed())
+            self.player.update(dt, pygame.key.get_pressed(), self.tilemap)
+
+            # Pindah map jika pemain menginjak portal
+            portal = self.tilemap.get_portal(self.player.rect)
+            if portal:
+                self.load_map(portal["to"], portal["spawn"])
+
+            self.update_kamera()
+
+    def update_kamera(self):
+        """Kamera mengikuti pemain, tetapi tidak keluar dari batas map."""
+        target = pygame.Vector2(self.player.rect.center) - (WIDTH / 2, HEIGHT / 2)
+        for sumbu, ukuran_map, ukuran_layar in (("x", self.tilemap.width, WIDTH),
+                                                ("y", self.tilemap.height, HEIGHT)):
+            if ukuran_map <= ukuran_layar:
+                nilai = -(ukuran_layar - ukuran_map) / 2  # map kecil: taruh di tengah
+            else:
+                nilai = max(0, min(getattr(target, sumbu), ukuran_map - ukuran_layar))
+            setattr(self.kamera, sumbu, nilai)
 
     # ---------- gambar ----------
     def draw_menu(self):
@@ -72,8 +103,11 @@ class Game:
             self.layar.blit(label, label.get_rect(center=(WIDTH // 2, 280 + i * 60)))
 
     def draw_playing(self):
-        self.layar.fill(BG_PLAY)
-        self.player.draw(self.layar)
+        self.layar.fill(BLACK)
+        self.tilemap.draw(self.layar, self.kamera)
+        self.player.draw(self.layar, self.kamera)
+        nama = self.font_kecil.render(self.tilemap.nama, True, WHITE)
+        self.layar.blit(nama, (10, 10))
 
     def draw(self):
         if self.state == STATE_MENU:
@@ -85,7 +119,7 @@ class Game:
     # ---------- loop utama ----------
     def run(self):
         while self.running:
-            dt = self.clock.tick(FPS) / 1000  # detik sejak frame sebelumnya
+            dt = self.clock.tick(FPS) / 1000
             self.handle_events()
             self.update(dt)
             self.draw()
